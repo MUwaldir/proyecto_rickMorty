@@ -1,0 +1,22 @@
+.containerDetail{
+    display: flex;
+    width: 100%;
+}
+.containerDetail_rigth{
+    width: 50%;
+    color: white;
+    background-image: url('https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.containerDetail_left{
+    width: 50%;
+    margin: auto 0;
+}
+.containerDetail_left img{
+    border-radius: 50%;
+    height: 30rem;
+}

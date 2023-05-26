@@ -1,0 +1,43 @@
+.buttonContainer{
+    display: flex;
+    justify-content: end;
+}
+
+.ContainerCard{
+    background-color: antiquewhite;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    width: 12rem;
+    height: 20rem;
+    padding: 1rem;
+    margin: 2rem;
+    box-shadow: 0 0 10px black;
+    &:hover {
+        box-shadow: 0 0 5px grey;
+    }
+}
+.ContainerCard h2{
+    font-size: 1rem;
+}
+.ContainerCard h4{
+    font-size: 0.6rem;
+}
+
+.ContainerCard img {
+    width: 130px;
+    box-shadow: 0 5px 5px black;
+    margin-top: 15px;
+}
+
+.buttonContainer button {
+    margin: 2px 2px 0 0;
+    border-radius: 3px;
+    background-color: pink;
+    color: red;
+    box-shadow: 0 2px 2px black;
+    &:hover {
+        background-color: red;
+        color: pink;
+        box-shadow: 0 2px 2px white;
+    }
+}
