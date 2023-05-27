@@ -1,14 +1,14 @@
 .buttonContainer{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .ContainerCard{
     background-color: antiquewhite;
     border: 1px solid gray;
     border-radius: 1rem;
-    width: 12rem;
-    height: 20rem;
+    width: 15rem;
+    height: 22rem;
     padding: 1rem;
     margin: 2rem;
     box-shadow: 0 0 10px black;
@@ -40,4 +40,13 @@
         color: pink;
         box-shadow: 0 2px 2px white;
     }
+}
+.dataContainer{
+    text-align:center;
+    text-decoration: none;
+    
+}
+.dataContainer h3{
+color: black;
+font-weight: bold;
 }

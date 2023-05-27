@@ -13,9 +13,7 @@ function Deatil() {
         .then(({ data }) => {
            if (data.name) {
               setCharacter(data);
-           } else {
-              window.alert('No hay personajes con ese ID');
-           }
+           } 
         });
         return setCharacter({});
      }, [id]);

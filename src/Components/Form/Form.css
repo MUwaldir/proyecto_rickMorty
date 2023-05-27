@@ -43,7 +43,7 @@
     text-transform: uppercase;
    
 }
-input{
+.Form input{
     width: 80%;
     margin: 0 auto;
 }
