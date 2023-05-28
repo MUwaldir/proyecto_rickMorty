@@ -22,8 +22,8 @@ function Deatil() {
     return ( <div>
         {character.name &&
         <div className='containerDetail'>
-            <div className='containerDetail_rigth'>
-                <div>
+            <div className='containerDetail_left'>
+                <div className='fondo_text'>
 
             <h1>Name / {character.name}</h1>
             <h2>Status / {character.status}</h2>
@@ -32,7 +32,7 @@ function Deatil() {
                 </div>
 
             </div>
-            <div className='containerDetail_left'>
+            <div className=' containerDetail_rigth'>
                 <img src={character.image} alt="" />
             </div>
 

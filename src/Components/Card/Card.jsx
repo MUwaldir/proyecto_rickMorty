@@ -26,7 +26,7 @@ const {id,name,status,species,gender,origin,image,onClose,addFav,removeFav,myFav
       
    }, [myFavorites]);
    console.log(myFavorites)
-    return ( <div className='ContainerCard'>
+    return ( <div className='ContainerCard card'>
             <div className='buttonContainer'>
               
             {

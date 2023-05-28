@@ -4,19 +4,54 @@
 }
 .containerDetail_rigth{
     width: 50%;
-    color: white;
+    
     background-image: url('https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     height: calc(100vh - 4rem);
     display: flex;
     justify-content: center;
     align-items: center;
     
+    
+}
+.containerDetail_rigth img{
+    border-radius: 1rem;
 }
 .containerDetail_left{
     width: 50%;
     margin: auto 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+}
+.fondo_text{
+    background-color: gray;
+    width: 50%;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 .containerDetail_left img{
     border-radius: 50%;
     height: 30rem;
+}
+
+@media (max-width: 768px){
+    .containerDetail{
+        flex-direction: column;
+        height: calc(100vh - 4rem);
+    }
+    .containerDetail_rigth{
+        width: 100%;
+        padding: 1rem;
+    }
+    .containerDetail_left{
+        width: 100%;
+        padding: 1rem;
+    }
+    .fondo_text{
+        width: 80%;
+        
+    }
 }
