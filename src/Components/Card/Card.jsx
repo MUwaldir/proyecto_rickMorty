@@ -36,6 +36,7 @@ const {id,name,status,species,gender,origin,image,onClose,addFav,removeFav,myFav
                   <button onClick={() => handleFavorite()}>🤍</button>
                )
             }
+            <h2>Numero: {id}</h2>
             <button onClick={() => onClose(id)}>X</button>
          </div>
          <div className='dataContainer'>

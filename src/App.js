@@ -4,19 +4,22 @@ import Navbar from './Components/Navbar/Navbar';
 import Cards from './Components/Cards/Cards';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import About from './Components/About/About';
 import Deatil from './Components/Deatil/Deatil';
 import Form from './Components/Form/Form';
 import Favorites from './Components/Favorites/Favorites';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFig, removeFav, removeFig } from './redux/actions';
 
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [figures , setIdFigures] = useState([])
-
-  const [loading, setLoading] = useState(false);
+  // const [figures , setIdFigures] = useState([])
+const figures = useSelector((state) => state.figures)
+const dispatch = useDispatch() 
+ const [loading, setLoading] = useState(false);
   const [acces, setAcces] = useState(false)
    const EMAIL = 'admin@gmail.com'
    const PASSWORD = 'admin123'
@@ -31,35 +34,60 @@ function App() {
          }
    }
   
-  const idRick =async (id)=>{
-    const idPersonaje = +id
+  // const idRick =async (id)=>{
+  //   const idPersonaje = +id
+  //   const idExists = figures.some(item => item.id === idPersonaje);
+  //   if(!idExists){
+
+  //     if (id > 0 && typeof idPersonaje === 'number') {
+  //     try {
+  //       setLoading(true);
+  //         await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+  //           .then(({ data }) => {
+  //             if (data.name) {
+  //               setIdFigures((oldChars) => [...oldChars, data]);
+  //               navigate('/home');
+  //             } 
+  //         })
+  //         } catch (error) {
+  //           console.error('Error:', error.message);
+  //         } finally {
+  //           setLoading(false);
+  //         }
+  
+  //       }else{
+  //         window.alert('ID! Invalido de personaje'); 
+  //       }
+  //   }else{
+  //     window.alert('ID!  de personaje ya Existe'); 
+  //   }
+      
+   
+
+  // }
+
+  const idRick =  async(id) =>{
+        const idPersonaje = +id
     const idExists = figures.some(item => item.id === idPersonaje);
     if(!idExists){
 
       if (id > 0 && typeof idPersonaje === 'number') {
-      try {
-        setLoading(true);
-          await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
-            .then(({ data }) => {
-              if (data.name) {
-                setIdFigures((oldChars) => [...oldChars, data]);
-                navigate('/home');
-              } 
-          })
-          } catch (error) {
-            console.error('Error:', error.message);
-          } finally {
-            setLoading(false);
-          }
-  
-        }else{
-          window.alert('ID! Invalido de personaje'); 
-        }
-    }else{
-      window.alert('ID!  de personaje ya Existe'); 
+    try {
+      setLoading(true);
+      await dispatch(addFig(id));
+      navigate('/home')
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
-      
-   
+  }else{
+            window.alert('ID! Invalido de personaje'); 
+          }
+  }else{
+    window.alert('ID!  de personaje ya Existe'); 
+  }
+    
 
   }
 
@@ -68,8 +96,8 @@ function App() {
   };
 
   const onClose = (id)=>{
-    setIdFigures(figures.filter(caracter =>
-      caracter.id !== +id))
+    dispatch(removeFig(id))
+    dispatch(removeFav(id))
   }
   useEffect(() => {
     !acces && navigate('/');

@@ -1,11 +1,12 @@
 /* 4️⃣ ***REDUCER*** 4️⃣ */
 
-import { ADD_FAV, REMOVE_FAV } from "../actions";
+import { ADD_FAV, ADD_FIGURE, REMOVE_FAV, REMOVE_FIGURE } from "../actions";
 
 /* Importa las action-types aquí. */
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    figures:[]
 };
 
 
@@ -29,7 +30,18 @@ const rootReducer = (state = initialState, action) => {
                 myFavorites:remFavorite
             }
 
+        case ADD_FIGURE :
+            return {
+                ...state,
+                figures:[...state.figures, action.payload]
+            }
 
+        case REMOVE_FIGURE :
+            const remFigure = state.figures.filter((fig) => fig.id !== action.payload)
+            return {
+                ...state,
+                figures:remFigure
+            }
             
 
         default:
